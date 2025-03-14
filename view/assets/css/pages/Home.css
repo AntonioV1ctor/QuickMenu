@@ -7,5 +7,7 @@
     background-color: var(--box-default-color);
 }
 .login-home-box{
-
+    width: 50vh;
+    height: 40%;
+    background-color: red;
 }
