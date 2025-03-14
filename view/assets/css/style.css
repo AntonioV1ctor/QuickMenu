@@ -1,0 +1,14 @@
+@import url('reset.css');
+@import url('pages/Adm.css');
+@import url('pages/ChiefHome.css');
+@import url('pages/Home.css');
+@import url('pages/UserHome.css');
+
+:root{
+    --backgroung-default-color: ;
+    --box-default-color: ;
+    --text-default-color: ;
+    --title-default-color: ;
+    --shadow-default-color: ;
+}
+/* I have a idea, change menu color with different styles */
