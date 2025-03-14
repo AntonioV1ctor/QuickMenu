@@ -5,10 +5,10 @@
 @import url('pages/UserHome.css');
 
 :root{
-    --backgroung-default-color: ;
-    --box-default-color: ;
-    --text-default-color: ;
-    --title-default-color: ;
-    --shadow-default-color: ;
+    --backgroung-default-color: rgb(237, 237, 237);
+    --box-default-color: rgb(238, 238, 238);
+    --text-default-color: rgb(23, 23, 23) ;
+    --title-default-color: rgb(23, 23, 23) ;
+    --shadow-default-color: rgb(23, 23, 23) ;
 }
 /* I have a idea, change menu color with different styles */
