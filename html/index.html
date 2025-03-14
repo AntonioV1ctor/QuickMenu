@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>quickmenu</title>
+</head>
+<body>
+  <script>
+    class item_menu {
+      constructor(name, id, image) {
+        
+      }
+      print = function () {
+        console.log(self);
+      }
+    }
+    
+    const cart = ["coxinha", "coxinha", "risole"];
+  </script>
+  <script>
+    function make_order(cart, token, is_delivery) {
+      fetch("order", {
+        method: "POST",
+        body: JSON.stringify({
+          title: "order",
+          body: [{item: "item"},],
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "User-token": token
+        }
+      })
+      .then((response) => response.text())
+      .then((text) => console.log(text))
+    }
+
+    function create_user(name, password) {
+
+    }
+
+    
+    function login_user(params) {
+      var token;
+
+      return token;
+    }
+
+
+    function make_element(item) {
+      
+    }
+
+    function get_menu() {
+      fetch("menu", {
+        method: "POST",
+        body: "",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then((response) => response.text())
+      .then((text) => console.log(text))
+
+    }
+
+  </script>
+  <script>
+
+  </script>
+
+  <div>user</p>
+    <input type="text" id="user_name" placeholder="Username">
+    <input type="password" id="user_password" placeholder="Password">
+    <button id="login">log in</button>
+    <button id="create-account">create account</button>
+    <button id="logout">log out</button>
+  </div>
+
+  <h1>menu</h1>
+  <div id="menu-div">
+    <p>dsfasdfasdf</p>
+    <p>dfasdfasdfa</p>
+  </div>
+  <div>
+    <button id="fazer-pedido" onclick="make_order(0, `12345678`, 0)">make order</button>
+    <button id="aa">aa</button>
+  </div>
+  
+  <img src="gatobunda.jpg" alt="gatobunda">
+  <p>its him</p>
+
+  <script>
+    get_menu();
+
+  </script>
+  
+</body>
+</html>
