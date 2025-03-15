@@ -1,5 +1,3 @@
-<?php include_once "../model/scripts/get_cookie.php"?>
-
 <?php include_once "../view/components/head.php" ?>
 <body>
     <h2 id="user-greeting">hello user</h2>
@@ -12,4 +10,7 @@
     <?php include_once "../view/components/footer.php" ?>
 </body>
 </html>
+
+<?php include_once "../model/scripts/get_cookie.php"?>
+
 

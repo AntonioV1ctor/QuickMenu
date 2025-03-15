@@ -1,16 +1,27 @@
-<?php include_once "../view/components/head.php" ?>
+<?php include_once "../../view/components/head.php" ?>
 <body>
+    <script>
+        function redirect() {
+            let host = window.location.protocol + '//' + window.location.hostname;
+            window.location.replace(host + '/login/login.php');
+        }
+    </script>
+
     <div class="login-home-container">
         <div class="login-home-box">
-            <form action="" method="post">
+            <form action="signin" method="post">
                 <input required type="email">
                 <input required type="password">
                 <input required type="submit" value="sign in">
             </form>
-        </div>i already have an account</button>
+            <button onclick='redirect()'>i already have an account</button>
+        </div>
     </div>
-    <?php include_once "../view/components/footer.php" ?>
+
+
+    <?php include_once "../../view/components/footer.php" ?>
 </body>
 </html>
 
-<?php include_once "../model/scripts/user.php"?>
+<?php include_once "../../model/scripts/user.php"?>
+
