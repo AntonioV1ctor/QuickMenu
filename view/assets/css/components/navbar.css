@@ -1,0 +1,12 @@
+.navbar-header{
+    background-color: #d9d9d9;
+}
+
+.navbar-nav{
+    height: 53px;
+    background-size: 320px 59px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../images/QuickMenuLogoNav.png');
+
+}
