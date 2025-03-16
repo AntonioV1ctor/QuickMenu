@@ -1,14 +1,6 @@
 CREATE TABLE clients (
-    user VARCHAR(255),
+    username VARCHAR(255),
+    password VARCHAR(32),
     id INT UNSIGNED,
     token VARCHAR(32)
-);
-
-CREATE TABLE orders (
-    
-
-);
-
-CREATE TABLE delivery (
-
 );
