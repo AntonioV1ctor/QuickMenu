@@ -3,6 +3,9 @@
 @import url('pages/ChiefHome.css');
 @import url('pages/Home.css');
 @import url('pages/UserHome.css');
+@import url('components/navbar.css');
+@import url('components/footer.css');
+@import url('components/head.css');
 
 :root{
     --backgroung-default-color: rgb(237, 237, 237);

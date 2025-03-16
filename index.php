@@ -1,18 +1,38 @@
+<?php
+
+if (isset($_POST["login-home-submit"])) {
+    $login = $_POST["login-home-flogin"];
+    $pass = $_POST["login-home-fpass"];
+    if (empty($login) && empty($pass)) {
+        echo "";
+    } else {
+        if ($login == "quickmenu@gmail.com" && $pass == "dadada") {
+            echo "logado";
+        } else {
+            echo "Login ou Senha Incorreta!";
+        }
+    }
+} else {
+    echo "";
+}
+
+?>
+
 <?php include_once('./view/components/head.php'); ?>
 
 <body>
-    <?php include_once('./view/components/navbar.php');?>
+    <?php include_once('./view/components/navbar.php'); ?>
     <div class="login-home-container">
-
         <div class="login-home-box">
-            <form class="login-home-form" action="/view/pages/user/index.php" method="post">
+            <form class="login-home-form" action="index.php" method="post">
+                <div class="login-home-user-profile"></div>
                 <div class="login-home-align-input">
-                    <label for="flogin">Login</label>
-                    <input class="login-home-input-default" required type="email" name="flogin">
-                    <label for=" fpass">Password</label>
-                    <input class="login-home-input-default" required type="password" name="fpass">
+                    <i id="login-home-icon-email" class="fa-solid fa-envelope"></i>
+                    <input name="login-home-flogin" class="login-home-input-default" required type="email" placeholder="Login">
+                    <i id="login-home-icon-pass" class="fa-solid fa-unlock"></i>
+                    <input name="login-home-fpass" class="login-home-input-default" required type="password" placeholder="Password">
                 </div>
-                <input class="login-home-button-default" required type="submit" value="sign in">
+                <input name="login-home-submit" class="login-home-button-default" required type="submit" value="sign in">
             </form>
         </div>
     </div>

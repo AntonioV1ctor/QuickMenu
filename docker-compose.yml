@@ -1,10 +1,25 @@
 version: '3.8'
 
 services:
+  db:
+    image: mysql:latest
+    container_name: quick-menu-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: QuickMenu
+      MYSQL_ROOT_PASSWORD: RootPassword
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-volume:/var/lib/mysql
   web:
     image: php:8.2-apache
-    container_name: meu_servidor_php
+    container_name: quick-menu-web
     ports:
       - "80:80"
     volumes:
       - ./:/var/www/html
+
+volumes:
+  mysql-volume:
+    driver: local 

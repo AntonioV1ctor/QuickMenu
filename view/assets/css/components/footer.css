@@ -1,0 +1,10 @@
+.footer-div {
+    background-color: #d9d9d9;
+    align-items: center;
+    display: flex;
+    height: 35px;
+}
+
+.footer-h2 {
+    margin-left: 15px;
+}
