@@ -1,37 +1,31 @@
-###############################################################################
-#                          Generated on phpdocker.io                          #
-###############################################################################
-version: '3.1'
+version: '3.8'
+
 services:
-    memcached:
-        image: 'memcached:alpine'
+  db:
+    image: mysql:latest
+    container_name: quick-menu-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: QuickMenu
+      MYSQL_ROOT_PASSWORD: RootPassword
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-volume:/var/lib/mysql
+  web:
+    image: php:8.2-apache
+    container_name: quick-menu-web
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    command: >
+      bash -c "docker-php-ext-install mysqli &&
+              a2enmod rewrite &&
+              apache2-foreground"
 
-    mysql:
-        image: 'mysql:8.0'
-        working_dir: /application
-        volumes:
-            - '.:/application'
-        environment:
-            - MYSQL_ROOT_PASSWORD=RootPassword
-            - MYSQL_DATABASE=QuickMenu
-            - MYSQL_USER=root
-            - MYSQL_PASSWORD=RootPassword
-        ports:
-            - '8082:3306'
-
-    webserver:
-        image: 'nginx:alpine'
-        working_dir: /application
-        volumes:
-            - '.:/application'
-            - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
-        ports:
-            - '80:80'
-
-    php-fpm:
-        build: phpdocker/php-fpm
-        working_dir: /application
-        volumes:
-            - '.:/application'
-            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.4/fpm/conf.d/99-overrides.ini'
-            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.4/cli/conf.d/99-overrides.ini'
+volumes:
+  mysql-volume:
+    driver: local 

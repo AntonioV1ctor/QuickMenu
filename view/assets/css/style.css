@@ -1,0 +1,17 @@
+@import url('reset.css');
+@import url('pages/Adm.css');
+@import url('pages/ChiefHome.css');
+@import url('pages/Home.css');
+@import url('pages/UserHome.css');
+@import url('components/navbar.css');
+@import url('components/footer.css');
+@import url('components/head.css');
+
+:root{
+    --backgroung-default-color: rgb(237, 237, 237);
+    --box-default-color: rgb(238, 238, 238);
+    --text-default-color: rgb(23, 23, 23) ;
+    --title-default-color: rgb(23, 23, 23) ;
+    --shadow-default-color: rgb(23, 23, 23) ;
+}
+/* I have a idea, change menu color with different styles */
