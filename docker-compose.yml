@@ -13,8 +13,8 @@ services:
             - '.:/application'
         environment:
             - MYSQL_ROOT_PASSWORD=RootPassword
-            - MYSQL_DATABASE=QuickMenu
-            - MYSQL_USER=root
+            - MYSQL_DATABASE=root
+            - MYSQL_USER=quickmenu_user
             - MYSQL_PASSWORD=RootPassword
         ports:
             - '8082:3306'

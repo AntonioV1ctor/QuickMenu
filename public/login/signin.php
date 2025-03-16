@@ -10,8 +10,9 @@
     <div class="login-home-container">
         <div class="login-home-box">
             <form action="signin" method="post">
-                <input required type="email">
-                <input required type="password">
+                <input required type="text" name="username">
+                <input required type="email" name="email">
+                <input required type="password" name="password">
                 <input required type="submit" value="sign in">
             </form>
             <button onclick='redirect()'>i already have an account</button>

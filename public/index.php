@@ -1,3 +1,5 @@
+<?php include_once '../model/scripts/handle_post.php'?>
+<?php include_once '../model/database/db.php'?>
 <?php include_once "../view/components/head.php" ?>
 <body>
     <h2 id="user-greeting">hello user</h2>

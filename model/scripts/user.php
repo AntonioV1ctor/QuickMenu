@@ -1,6 +1,5 @@
 <?php
-
-if (isset($_COOKIE['user-token'])) {
+/*if (isset($_COOKIE['user-token'])) {
     //echo 'cookie';
     
 } else {
@@ -8,6 +7,6 @@ if (isset($_COOKIE['user-token'])) {
     setcookie('user-token', 'very real token', time() + 3600, '/', '');
     header('Location: /', true, 302);
     exit();
-}
+}*/
 ?>
 
