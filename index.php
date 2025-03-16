@@ -1,19 +1,30 @@
 <?php
+include'model/database/db.php';
+if (isset($_POST["login-home-flogin"]) || isset($_POST["login-home-fpass"])) {
+    $login = $mysqli->real_escape_string($_POST["login-home-flogin"]);
+    $pass = $mysqli->real_escape_string($_POST["login-home-fpass"]);
 
-if (isset($_POST["login-home-submit"])) {
-    $login = $_POST["login-home-flogin"];
-    $pass = $_POST["login-home-fpass"];
-    if (empty($login) && empty($pass)) {
-        echo "";
-    } else {
-        if ($login == "quickmenu@gmail.com" && $pass == "dadada") {
-            echo "logado";
-        } else {
-            echo "Login ou Senha Incorreta!";
+    $sql_code = "SELECT * FROM users WHERE 'login'='$login' AND 'password'='$pass' ";
+    $sql_query = $mysqli->query($sql_code) or die("Database Fatal Error!");
+
+
+    $rows = $sql_query->num_rows;
+    if($rows == 1) {
+        $user = $sql_query->fetch_assoc();
+        if(!isset($_SESSION)){
+            session_start();
         }
+        $_SESSION['id'] = $user["id"];
+        $_SESSION['login'] = $login["login"];
+        $_SESSION['password'] = $pass["password"];
+        echo$login;
+        echo$pass;
+
+
+        header("Location: view/pages/user/");
+    }else{
+        echo"Login Error!";
     }
-} else {
-    echo "";
 }
 
 ?>
