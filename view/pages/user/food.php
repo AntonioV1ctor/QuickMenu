@@ -13,7 +13,7 @@
                         <h1><strong>Hamburger Picante</strong></h1>
                         <p>Blend de carnes (costela e fraldinha), queijo cheddar picante, bacon, jalapeños, molho sriracha, cebola caramelizada, pimenta calabresa, servido no pão brioche.</p>
                     </div>
-                    <h1>Valor:R$100</h1>
+                    <h1>Valor:<strong>R$100</strong></h1>
                 </div>
                 <input class="food-option-button-choice" type="submit" value="Adicionar">
             </form>
