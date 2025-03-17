@@ -1,0 +1,14 @@
+/* .user-navbar-header{} */
+#user-navbar-more-options-icon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    scale: 150%;
+    cursor: pointer;
+}
+
+.user-navbar-nav{
+    height: 53px;
+    background-color: #d9d9d9;
+    position: relative;
+}

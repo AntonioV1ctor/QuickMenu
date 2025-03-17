@@ -1,0 +1,114 @@
+* {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.user-home-container {
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--box-default-color);
+    flex-direction: column;
+}
+
+.user-home-box {
+    width: 290px;
+    background-color: #EDE6E6;
+    display: flex;
+    align-items: center;
+     overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 10px 10px 40px -5px;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255, 207, 148) #EDE6E6;
+}
+
+
+.user-home-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.user-home-box::-webkit-scrollbar-track {
+    background: #EDE6E6;
+}
+
+.user-home-box::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 207, 148);
+    border-radius: 20px;
+}
+
+.user-home-menu {
+    background-image: url(https://encurtador.com.br/IKbQk);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px;
+    width: 87px;
+    height: 87px;
+    border: 5px solid rgba(0, 0, 0, 0.247);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+    background-color: bisque;
+    cursor: pointer;
+}
+
+.user-home-menu-cards {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    border-bottom: 20px solid #EDE6E6;
+    border-radius: 15px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.user-home-title-menu {
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    color: #4F4F4F;
+    position: sticky;
+    top: 0;
+    background-color: #EDE6E6;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 0 5px 0;
+    z-index: 1;
+    box-shadow: 1px 1px 5px black;
+}
+
+.user-home-restaurant-name{
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: #5a3434;
+}
+
+
+.user-home-restaurant-img{
+    width: 50px;
+    height: 50px;
+}
+
+.user-home-restaurant-logo-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 45%;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .user-home-restaurant-logo-area{
+        width: 90%;
+    }
+}
