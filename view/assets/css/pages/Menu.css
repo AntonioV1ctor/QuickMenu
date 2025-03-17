@@ -1,0 +1,113 @@
+* {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.menu-options-container {
+    background-color: var(--box-default-color);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 88vh;
+    width: 100%;
+}
+
+.menu-options-box {
+    scrollbar-color: rgb(255, 207, 148) #EDE6E6;
+    box-shadow: 10px 10px 40px -5px;
+    background-color: #EDE6E6;
+    flex-direction: column;
+    scrollbar-width: thin;
+    align-items: center;
+    border-radius: 15px;
+    overflow-y: scroll;
+    height: 400px;
+    display: flex;
+    width: 300px;
+
+}
+
+.menu-options-menu-cards {
+    border-bottom: 20px solid #EDE6E6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    gap: 25px;
+
+}
+
+.menu-options-products {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 5px solid rgba(0, 0, 0, 0.247);
+    background-color: bisque;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 130px;
+    display: flex;
+    width: 87px;
+}
+
+
+.menu-options-products-img {
+    height: 50px;
+    width: 50px;
+}
+
+.menu-options-products-box {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 90%;
+}
+
+.menu-options-title {
+    box-shadow: 1px 1px 5px black;
+    background-color: #EDE6E6;
+    justify-content: center;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 10px 0;
+    position: sticky;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+}
+
+.menu-options-title h1 {
+    font-family: "Roboto", sans-serif;
+    color: #4F4F4F;
+    font-size: 25px;
+}
+
+#menu-options-icon {
+    position: absolute;
+    color: #4F4F4F;
+    cursor: pointer;
+    font-size: 18px;
+    left: 15px;
+}
+
+.menu-options-view-button{
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    color: aliceblue;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.menu-options-view-button:hover{
+    scale: 102%;
+
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.46);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.46);
+    box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.46);
+}

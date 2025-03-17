@@ -1,11 +1,13 @@
 @import url('reset.css');
 @import url('pages/Adm.css');
-@import url('pages/ChiefHome.css');
+@import url('pages/Menu.css');
 @import url('pages/Home.css');
 @import url('pages/UserHome.css');
-@import url('components/navbar.css');
-@import url('components/footer.css');
+@import url('pages/ChiefHome.css');
 @import url('components/head.css');
+@import url('components/footer.css');
+@import url('components/navbar.css');
+@import url('components/user_navbar.css');
 
 :root{
     --backgroung-default-color: rgb(237, 237, 237);
