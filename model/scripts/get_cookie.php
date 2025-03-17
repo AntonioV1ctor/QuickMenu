@@ -6,15 +6,14 @@
 		//$query = 'SELECT * FROM clients';
 		$sql_r = $conn->query('SHOW TABLES');
 
-		// Check for any errors in the query
+
 		if (!$sql_r) {
 			die('Error executing query: ' . $conn->error);
 		}
 
-		// Fetch and echo the table names
 		echo "Tables in the database:<br>";
 		while ($row = $sql_r->fetch_row()) {
-			echo $row[0] . "<br>"; // $row[0] contains the table name
+			echo $row[0] . "<br>";
 		}
 	} else {
 		// redirect user if no cookie is found
