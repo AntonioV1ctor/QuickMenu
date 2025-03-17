@@ -1,4 +1,9 @@
 <?php
+include_once './model/database/db.php';
+
+if (isset($_POST['login-home-flogin']) && isset($_POST['login-home-fpass'])) {
+    echo 'sasdasdasda';
+}
 /*if (isset($_COOKIE['user-token'])) {
     //echo 'cookie';
     
@@ -8,5 +13,6 @@
     header('Location: /', true, 302);
     exit();
 }*/
+
 ?>
 
