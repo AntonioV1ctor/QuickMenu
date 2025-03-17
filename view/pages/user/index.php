@@ -3,6 +3,13 @@
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
     <div class="user-home-container">
+        <div class="user-home-restaurant-logo-area">
+            <div class="user-home-restaurant-logo-div">
+                <img class="user-home-restaurant-img" src="https://encurtador.com.br/1uewd" alt="logo">
+            </div>
+            <h1 class="user-home-restaurant-name">Burger Palace</h1>
+        </div>
+
         <div class="user-home-box">
             <h1 class="user-home-title-menu">Cardápio</h1>
             <div class="user-home-menu-cards">

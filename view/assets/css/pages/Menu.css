@@ -8,8 +8,9 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 88vh;
+    height: 98vh;
     width: 100%;
+    flex-direction: column;
 }
 
 .menu-options-box {
