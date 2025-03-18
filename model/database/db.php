@@ -1,13 +1,13 @@
 <?php
-    // db config
-    $service_name = 'db';
-    $username = 'root';
-    $password = 'RootPassword';
-    $db_name = 'QuickMenu';
+// db config
+$service_name = 'db';
+$username = 'root';
+$password = 'RootPassword';
+$db_name = 'QuickMenu';
 
-    $conn = new mysqli($service_name, $username, $password, $db_name);
+$sql_db = new mysqli($service_name, $username, $password, $db_name);
 
-    if ($conn->connect_error) {
-        die('db connection failed: '. $conn->connect_error);
-    }
+if ($sql_db->connect_error) {
+    die('db connection failed: '. $sql_db->connect_error);
+}
 ?>
