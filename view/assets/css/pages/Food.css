@@ -1,0 +1,75 @@
+.food-option-conatiner{
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--box-default-color);
+    
+}
+
+.food-option-box{
+    width: 300px;
+    height: 310px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 10px 10px 40px -5px;
+    position: relative;
+}
+
+.food-options-products-img{
+    height: 100px;
+    width: 100px;
+}
+
+.food-option-chosed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#food-option-back-to-menu{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    scale: 110%;
+    cursor: pointer;
+}
+
+.food-option-align{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.food-option-button-choice{
+    height: 40px;
+    width: 90px;
+    background-color: cornflowerblue;
+    transition: 0.5s;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.food-option-button-choice:hover{
+    scale: 101%;
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.46);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.46);
+    box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.46);
+}
+
+.food-option-ingredients-div{
+    overflow-y: scroll;
+    width: 230px;
+    height: 60px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
