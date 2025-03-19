@@ -1,5 +1,4 @@
 <?php include_once "./../../components/head.php"; ?>
-
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
     <div class="user-home-container">
@@ -15,17 +14,22 @@
             <div class="user-home-menu-cards">
 
                 <?php include_once('./../../../model/scripts/get_item_types.php'); for ($i = 0; $i < $t_count; $i++) { ?>
-                    <div class="user-home-menu user-home-card"></div>
+                    <div class="user-home-menu user-home-card" onclick='redirect_with_param(<?php echo "`". $item_types[$i] . "`"; ?>)'></div>
                 <? } ?>
             </div>
         </div>
     </div>
-    <script src="/view/assets/js/user-home.js"></script>
-    <!-- Redirect was making by Js modify this Danilo to use PHP Ok? -->
+    <form method="POST" action="">
+    <button type="submit" name="buttonClicked">Click Me!</button>
+    </form>
+    <script>
+        // POST to redirect user on div click with ?food_type
+        function redirect_with_param(param){
+            window.location.href = "menu.php" + "?food_type=" + param;
+            console.log('Redirecting...');
+        };
+
+    </script>
     <?php include_once "./../../components/footer.php"; ?>
-
 </body>
-<!-- Danilo se voce estiver vendo isso aqui voce vai ter que criar um loop com foreach do PHP onde el vai subistituir essas informacoes do modal pela as informacoes do banco de dados onde ele vai ler uma tabela especifica dentro do banco de dados da tabela que voce vai criar chamado restaurants ou algo do tipo. Entao faca isso e depois remova esse comentario... -->
-
-
 </html>

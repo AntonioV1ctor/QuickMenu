@@ -7,6 +7,7 @@ Essa página deve ser única para cada tipo de produto (não deve haver uma tela
 Ou seja, o PHP precisa identificar qual produto foi selecionado e gerar a página dinamicamente com base nesse produto.
 
 A ideia é usar um identificador único, como um ID, para determinar qual produto foi clicado e construir o conteúdo da página a partir disso. Remova esse comentario dps... -->
+<?php echo $_GET['link'];?>
 <?php include_once "./../../components/head.php"; ?>
 
 <body>

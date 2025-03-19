@@ -20,7 +20,12 @@ $menu_type_collums = $sql_db->query('SELECT item_type FROM menu;');
 
 if ($menu_type_collums->num_rows > 0) {
     while($row = $menu_type_collums->fetch_assoc()) {
-        $item_types[] = $row['item_type'];
+    	$match = false;
+    	foreach ($item_types as $type) {
+            if ($row['item_type'] == $type) {$match = true;}
+    	}
+        if (!$match) {$item_types[] = $row['item_type'];}
+        
     }
 }
 
