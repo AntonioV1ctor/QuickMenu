@@ -1,15 +1,17 @@
-<!-- Danilo, aqui você vai precisar criar uma função em PHP que gere dinamicamente o conteúdo da página com base no produto selecionado na tela anterior. 
-Exemplo: quando o usuário clica em "Hamburgers" na página anterior, ele é redirecionado para essa página, que deve exibir:
-    1. O título da categoria (ex: "Hamburgers").
-    2. Um conjunto de cards com os hambúrgueres disponíveis e seus preços.
+<?php
+    // get items from the chosen type
+    include_once('./../../../model/database/db.php');
 
-Essa página deve ser única para cada tipo de produto (não deve haver uma tela fixa para "Hamburgers", "Bebidas", "Salgados", etc.). 
-Ou seja, o PHP precisa identificar qual produto foi selecionado e gerar a página dinamicamente com base nesse produto.
+    $items = [];
+    $type = $_GET['item_type'];
+    if (isset($type)) {
+        static $items;
+        $items = $sql_db->query("SELECT * FROM menu WHERE item_type = '".$type."';");
+    }
+    if (!$type) { $type = 'Others'; }
+?>
 
-A ideia é usar um identificador único, como um ID, para determinar qual produto foi clicado e construir o conteúdo da página a partir disso. Remova esse comentario dps... -->
-<?php echo $_GET['link'];?>
 <?php include_once "./../../components/head.php"; ?>
-
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
     <div class="menu-options-container">
@@ -21,24 +23,27 @@ A ideia é usar um identificador único, como um ID, para determinar qual produt
         </div>
         <div class="menu-options-box">
             <div class="menu-options-title">
-                <i id="menu-options-icon" class="fa-solid fa-arrow-left"></i>
-                <h1>Hamburgers</h1>
+                <i id="menu-options-icon" class="fa-solid fa-arrow-left" 
+                onclick="window.location.href = './'"
+                ></i>
+                <h1><?php echo $type; ?></h1>
             </div>
             <div class="menu-options-menu-cards">
-                <?php for ($h = 0; $h < 20; $h++) { ?>
+                <?php while ($row = $items->fetch_assoc()) { ?>
                     <div class="menu-options-products">
-                        <form action="food.php" class="menu-options-products-box" method="POST">
                             <img class="menu-options-products-img" src="https://encurtador.com.br/IKbQk">
-                            <p>Hamburger Picante</p>
-                            <p>Valor:100R$</p>
-                            <input class="menu-options-view-button" type="submit" value="Visualizar">
-                        </form>
+                            <p><strong><?php echo $row['item_name']; ?></strong></p>
+                            <p>Valor: R$<?php echo $row['item_price']; ?></p>
+                            <button class="menu-options-view-button" type="submit"
+                            onclick="redirect_with_param('food.php', 'id', '<?php echo $row['id']; ?>')"
+                            >Visualizar</button>
                     </div>
                 <? } ?>
             </div>
         </div>
     </div>
-    <script src="/view/assets/js/menu.js"></script>
+
+    <script src="/view/assets/js/main.js"></script>
     <?php include_once "./../../components/footer.php"; ?>
 </body>
 

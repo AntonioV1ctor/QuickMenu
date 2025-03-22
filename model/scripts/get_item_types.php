@@ -1,17 +1,5 @@
 <?php
-// for some reason i get a error trying to include db.php
-//include '../database/db.php';
-
-$service_name = 'db';
-$username = 'root';
-$password = 'RootPassword';
-$db_name = 'QuickMenu';
-
-$sql_db = new mysqli($service_name, $username, $password, $db_name);
-
-if ($sql_db->connect_error) {
-    die('db connection failed: '. $sql_db->connect_error);
-}
+include_once __DIR__ . "/../database/db.php";
 
 // the last type will be aways the miscalenius/undefined type
 $item_types = [];

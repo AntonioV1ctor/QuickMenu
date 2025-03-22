@@ -1,0 +1,3 @@
+<?php
+$restaruant_name = '';
+?>

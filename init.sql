@@ -11,6 +11,12 @@ CREATE TABLE menu (
     item_price FLOAT UNSIGNED,
     id INT AUTO_INCREMENT PRIMARY KEY
 );
+CREATE TABLE menu_description (
+    id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES menu(id) ON DELETE CASCADE,
+    content TEXT
+);
 
 -- inicial data to check if tables are working
 INSERT INTO clients (username, user_email, pass)

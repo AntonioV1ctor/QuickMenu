@@ -14,22 +14,15 @@
             <div class="user-home-menu-cards">
 
                 <?php include_once('./../../../model/scripts/get_item_types.php'); for ($i = 0; $i < $t_count; $i++) { ?>
-                    <div class="user-home-menu user-home-card" onclick='redirect_with_param(<?php echo "`". $item_types[$i] . "`"; ?>)'></div>
+                    <div class="user-home-menu user-home-card" 
+                    onclick='redirect_with_param("menu.php", "item_type", <?php echo "`".$item_types[$i]."`"; ?>)'
+                    ></div>
                 <? } ?>
             </div>
         </div>
     </div>
-    <form method="POST" action="">
-    <button type="submit" name="buttonClicked">Click Me!</button>
-    </form>
-    <script>
-        // POST to redirect user on div click with ?food_type
-        function redirect_with_param(param){
-            window.location.href = "menu.php" + "?food_type=" + param;
-            console.log('Redirecting...');
-        };
 
-    </script>
+    <script src="/view/assets/js/main.js"></script>
     <?php include_once "./../../components/footer.php"; ?>
 </body>
 </html>
