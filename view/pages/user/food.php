@@ -10,11 +10,11 @@
         $s_m_query = $sql_db->query("SELECT * FROM menu WHERE id = '".$self_id."';");
         $s_menu = $s_m_query->fetch_assoc();
 
-        $s_m_squery = $sql_db->query("SELECT * FROM menu_description WHERE id = '".$self_id."';");
-        $s_desc = $s_m_query->fetch_assoc();
+        $s_m_query2 = $sql_db->query("SELECT * FROM menu_description WHERE id = '".$self_id."';");
+        $s_desc = $s_m_query2->fetch_assoc();
 
         if (!isset($s_desc['content'])) {
-            $s_desc['content'] = 'sem descricao';
+            //$s_desc['content'] = 'sem descricao';
         }
     }
 ?>

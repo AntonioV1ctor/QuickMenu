@@ -17,16 +17,3 @@ CREATE TABLE menu_description (
     FOREIGN KEY (id) REFERENCES menu(id) ON DELETE CASCADE,
     content TEXT
 );
-
--- inicial data to check if tables are working
-INSERT INTO clients (username, user_email, pass)
-VALUES ('user1', 'aaaaaa@amail.com', 'very_secure_password');
-
-INSERT INTO menu (item_name, item_type, item_price)
-VALUES ('chesse-burger', 'burger', 15.99);
-INSERT INTO menu (item_name, item_type, item_price)
-VALUES ('salad-burger', 'burger', 13.99);
-INSERT INTO menu (item_name, item_type, item_price)
-VALUES ('soda', 'drink', 3.99);
-INSERT INTO menu (item_name, item_type, item_price)
-VALUES ('french-fries', '', 6.99);
