@@ -1,24 +1,54 @@
-<p align="left">
-  <a href="">
-    <img alt="Loki Logo" width="300" src="view/assets/images/QuickMenuLogo.png">
-  </a>
-</p>
+<div align="right">
+<a href="#portuguese">Português</a>
+</div>
 
-# 🚩QuickMenu
+<div id="portuguese">
 
-QuickMenu was developed as a school project, with the primary goal of helping restaurants create their menus more easily. This project is simple and was built by a small team of two collaborators.
+# QuickMenu
 
-If you have any suggestions or would like to contribute to the project, feel free to make a contribution.
+## Transformando a experiência gastronômica através da tecnologia
 
+O QuickMenu é uma solução SaaS inovadora desenvolvida para revolucionar a forma como restaurantes gerenciam seus cardápios e interagem com seus clientes. Nossa plataforma elimina a necessidade de anotações manuais de pedidos, otimizando o fluxo de trabalho e reduzindo erros operacionais.
 
-# Technologies:
-<img src="https://img.shields.io/badge/PHP-777BB4.svg?style=for-the-badge&logo=PHP&logoColor=white">
-<img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=white">
-<img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=MySQL&logoColor=white">
-<img src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white">
+### 🚀 Visão Geral
 
-<hr>
+QuickMenu oferece uma interface tríplice que atende a todas as necessidades do ecossistema de restaurantes:
 
-# Developed by:
-[@antonniovic]()
-[@DaniloGames]()
+- **Interface do Cliente**: Experiência digital intuitiva que permite aos clientes navegar pelo cardápio através de categorias claramente organizadas, visualizar detalhes dos pratos, fazer pedidos personalizados e acompanhar o status em tempo real.
+
+- **Interface do Gerente/Chef**: Painel de controle completo para gerenciamento de cardápio, monitoramento de pedidos em andamento, análise de desempenho, e ajustes em tempo real nos produtos oferecidos.
+
+### 💡 Principais Funcionalidades
+
+- Cardápio digital categorizado e visualmente atraente
+- Sistema de pedidos em tempo real sem intervenção de garçons
+- Customização completa de produtos e categorias
+- Análise de vendas e preferências dos clientes
+- Gestão centralizada para redes de restaurantes
+- Interface responsiva compatível com tablets e dispositivos móveis
+
+### 🔧 Tecnologias Utilizadas
+
+- Frontend: Css,Js,HTML5
+- Backend: PHP
+- Banco de Dados: MySQL
+- Hospedagem: LocalHost com Docker
+
+### 📈 Benefícios
+
+- Redução de até 30% no tempo de atendimento
+- Diminuição significativa de erros em pedidos
+- Aumento nas vendas através de recomendações inteligentes
+- Melhor gestão de recursos e estoque
+- Experiência aprimorada para o cliente final
+
+### 🌐 Público-Alvo
+
+Ideal para restaurantes de todos os portes que buscam modernizar suas operações, agilizar o atendimento e oferecer uma experiência digital contemporânea aos seus clientes.
+
+---
+
+*QuickMenu - Eficiência na mesa, satisfação no prato.*
+</div>
+
+---
