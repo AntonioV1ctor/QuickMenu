@@ -46,6 +46,7 @@
 .chief-default-icon-style{
     width: 40px;
     height: 40px;
+    margin-left: 5px;
 }
 
 .chief-head-title{
@@ -56,4 +57,12 @@
 
 .chief-tltle-text{
     font-size: 25px;
+}
+
+.chief-options-card-default {
+    cursor: pointer;
+}
+
+.invisible-submit {
+    display: none;
 }

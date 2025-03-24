@@ -1,9 +1,23 @@
 <?php include_once "./../../components/head.php"; ?>
-<?php 
-if($_SERVER['REQUEST_METHOD']){
-    $chiefname = $_POST["chief-name"];
-}
+<?php
+$chiefname = $_POST["chief-name"] ?? "";
 ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const setupCardClick = (cardDiv, formId) => {
+            cardDiv.addEventListener('click', function() {
+                document.getElementById(formId).submit();
+            });
+        };
+        
+        setupCardClick(document.querySelector('.card-pedidos'), 'form-pedidos');
+        setupCardClick(document.querySelector('.card-cardapio'), 'form-cardapio');
+        setupCardClick(document.querySelector('.card-estoque'), 'form-estoque');
+        setupCardClick(document.querySelector('.card-faturamento'), 'form-faturamento');
+        setupCardClick(document.querySelector('.card-mesas'), 'form-mesas');
+    });
+</script>
 </head>
 
 <body>
@@ -11,38 +25,67 @@ if($_SERVER['REQUEST_METHOD']){
     <div class="chief-options-container">
         <div class="chief-options-box">
             <div class="chief-head-title">
-                <h1 class="chief-tltle-text">Ola, Sr(a). <? echo"$chiefname";?> </h1>
+                <h1 class="chief-tltle-text">Olá, Sr(a). <?php echo "$chiefname"; ?> </h1>
             </div>
             <table>
                 <tbody>
                     <tr class="chief-options-card-div">
-                        <div class="chief-options-card-default">
-                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/list-icon.png" alt="">
+                        <div class="chief-options-card-default card-pedidos">
+                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/list-icon.png" alt="list">
                             <h1>Pedidos-Ativos</h1>
+                            <form id="form-pedidos" action="ativos.php" method="post">
+                                <input type="hidden" name="chief-name" value="<?php echo htmlspecialchars($chiefname); ?>">
+                                <input type="hidden" name="restaurant-id" value="<?php echo htmlspecialchars($restaurant_id); ?>">
+                                <input type="submit" class="invisible-submit">
+                            </form>
                         </div>
                     </tr>
+
                     <tr>
-                        <div class="chief-options-card-default">
-                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/report-icon.png" alt="">
+                        <div class="chief-options-card-default card-cardapio">
+                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/report-icon.png" alt="cardapio">
                             <h1>Gestão do Cardápio</h1>
+                            <form id="form-cardapio" action="cardapio.php" method="post">
+                                <input type="hidden" name="chief-name" value="<?php echo htmlspecialchars($chiefname); ?>">
+                                <input type="hidden" name="restaurant-id" value="<?php echo htmlspecialchars($restaurant_id); ?>">
+                                <input type="submit" class="invisible-submit">
+                            </form>
                         </div>
                     </tr>
+
                     <tr>
-                        <div class="chief-options-card-default">
-                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/dairy-products-icon.png" alt="">
+                        <div class="chief-options-card-default card-estoque">
+                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/dairy-products-icon.png" alt="estoque">
                             <h1>Controle de Estoque</h1>
+                            <form id="form-estoque" action="estoque.php" method="post">
+                                <input type="hidden" name="chief-name" value="<?php echo htmlspecialchars($chiefname); ?>">
+                                <input type="hidden" name="restaurant-id" value="<?php echo htmlspecialchars($restaurant_id); ?>">
+                                <input type="submit" class="invisible-submit">
+                            </form>
                         </div>
                     </tr>
+
                     <tr>
-                        <div class="chief-options-card-default">
-                        <img class="chief-default-icon-style" src="/view/assets/images/Icons/analysis-icon.png" alt="">
+                        <div class="chief-options-card-default card-faturamento">
+                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/analysis-icon.png" alt="rendimentos">
                             <h1>Rendimentos Totais</h1>
+                            <form id="form-faturamento" action="faturamento.php" method="post">
+                                <input type="hidden" name="chief-name" value="<?php echo htmlspecialchars($chiefname); ?>">
+                                <input type="hidden" name="restaurant-id" value="<?php echo htmlspecialchars($restaurant_id); ?>">
+                                <input type="submit" class="invisible-submit">
+                            </form>
                         </div>
                     </tr>
+
                     <tr>
-                        <div class="chief-options-card-default">
-                        <img class="chief-default-icon-style" src="/view/assets/images/Icons/table-number-icon.png" alt="">
+                        <div class="chief-options-card-default card-mesas">
+                            <img class="chief-default-icon-style" src="/view/assets/images/Icons/table-number-icon.png" alt="mesas">
                             <h1>Gerenciamento de mesas</h1>
+                            <form id="form-mesas" action="mesas.php" method="post">
+                                <input type="hidden" name="chief-name" value="<?php echo htmlspecialchars($chiefname); ?>">
+                                <input type="hidden" name="restaurant-id" value="<?php echo htmlspecialchars($restaurant_id); ?>">
+                                <input type="submit" class="invisible-submit">
+                            </form>
                         </div>
                     </tr>
                 </tbody>
