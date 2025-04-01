@@ -1,3 +1,4 @@
+<?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php
     // get items from the chosen type
     include_once('./../../../model/database/db.php');

@@ -1,3 +1,4 @@
+<?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php
     include_once('./../../../model/database/db.php');
 

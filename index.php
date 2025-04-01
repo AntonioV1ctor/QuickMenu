@@ -3,7 +3,7 @@
 include_once('./model/database/db.php');
 session_start();
 
-if (isset($_POST)) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// check if password is right
 	$up = $sql_db->query('SELECT * FROM clients WHERE user_email = "'. $_POST['login-home-flogin'] .'";');
 	$user = $up->fetch_assoc();

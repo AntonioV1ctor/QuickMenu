@@ -1,3 +1,5 @@
+<?php include_once('./../../../model/scripts/check-session.php'); ?>
+
 <?php include_once "./../../components/head.php"; ?>
 <body>
 <?php include_once "./../../components/head.php"; ?>
@@ -26,3 +28,5 @@
     <?php include_once "./../../components/footer.php"; ?>
 </body>
 </html>
+
+
