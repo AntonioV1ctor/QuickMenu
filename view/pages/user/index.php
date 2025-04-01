@@ -1,6 +1,6 @@
 <?php include_once "./../../components/head.php"; ?>
 <body>
-    <?php include_once('./../../components/user_navbar.php'); ?>
+<?php include_once "./../../components/head.php"; ?>
     <div class="user-home-container">
         <div class="user-home-restaurant-logo-area">
             <div class="user-home-restaurant-logo-div">

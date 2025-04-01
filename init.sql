@@ -15,5 +15,6 @@ CREATE TABLE menu_description (
     id INT,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES menu(id) ON DELETE CASCADE,
-    content TEXT
+    content TEXT,
+    image_path VARCHAR(255)
 );
