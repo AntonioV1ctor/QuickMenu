@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$user = $up->fetch_assoc();
 
 	if ($user['pass'] == $_POST['login-home-fpass']) {
-		$_SESSION['user_id'] = $user['id'];
+		$_SESSION['user_id'] = $user['id'];	
+		header('location: /view/pages/user');
 	}
 }
 ?>

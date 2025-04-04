@@ -1,8 +1,9 @@
+<? // might fix the bugs only when i get the fontend
+?>
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
-<?php
-    include_once('./../../../model/database/db.php');
+<?php // get self data
+    include_once('./../../../model/database/db.php');   
 
-    // get self data
     $s_menu = [];
     $s_desc = [];
 
@@ -18,6 +19,14 @@
             $s_desc['content'] = 'sem descrição';
         }
     }
+?>
+<?php // add item to cart
+	if (isset($_POST['add'])) {
+		$_SESSION['cart'][] = $_GET['id'];
+		header('location: menu.php?item_type='. $s_menu['item_type']);
+
+	}
+
 ?>
 <?php include_once "./../../components/head.php"; ?>
 <body>
@@ -36,7 +45,8 @@
                         <p><?php echo $s_desc['content'] ?></p>
                     </div>
                     <h1>Valor:<strong>R$<?php echo $s_menu['item_price'] ?></strong></h1>
-                </div>
+		</div>
+		<input name="add" type="hidden" value="<?php echo $_GET['id']; ?>">	
                 <input class="food-option-button-choice" type="submit" value="Adicionar">
             </form>
         </div>
