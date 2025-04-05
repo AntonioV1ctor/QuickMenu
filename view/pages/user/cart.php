@@ -1,3 +1,5 @@
+<? // might fix the errors only when i get the frontend
+?>
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php
 include_once('./../../../model/database/db.php');
@@ -21,19 +23,22 @@ while ($collum = $items_q->fetch_assoc()) {
 // no idea with what to do with $items for now :/
 $items = $items_t;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete-c-item'])) {
+if (isset($_POST['delete-c-item'])) {
 	// handle cart items
 	array_splice($_SESSION['cart'], $_POST['delete-c-item'], 1);
 	echo $_POST['delete-c-item'];	
-} else {
+}
 	// handle cart actions
-	if (isset($_POST['cart-action']) && $_POST['cart-action'] == 'clear') {
+if (isset($_POST['cart-action'])) {
+	if ($_POST['cart-action'] == 'clear') {
 		$_SESSION['cart'] = [];
-	} else {
+	}
+	if ($_POST['cart-action'] == 'order') {
 		// place order
 		header('location: payment.php');
 	}
 }
+
 	
 ?>
 

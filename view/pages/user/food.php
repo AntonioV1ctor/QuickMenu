@@ -1,11 +1,9 @@
-<? // might fix the bugs only when i get the fontend
-?>
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php // get self data
     include_once('./../../../model/database/db.php');   
 
     $s_menu = [];
-    $s_desc = [];
+
 
     $self_id = $_GET['id'];
     if (isset($self_id)) {
@@ -39,7 +37,7 @@
 
             <form class="food-option-chosed" action="" method="post">
                 <div class="food-option-align">
-                    <img class="food-options-products-img" src="https://encurtador.com.br/IKbQk" alt="food">
+		    <img class="food-options-products-img" src="<? echo $s_desc['image_path']; ?>" alt="food">
                     <div class="food-option-ingredients-div">
                         <h1><strong><?php echo $s_menu['item_name'] ?></strong></h1>
                         <p><?php echo $s_desc['content'] ?></p>

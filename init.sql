@@ -16,13 +16,11 @@ CREATE TABLE menu_description (
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES menu(id) ON DELETE CASCADE,
     content TEXT,
-    -- root folder for images is /view/assets/images
     image_path VARCHAR(255)
 );
 
+-- any table that starts with "o_" is a order table, after that is the user's id
+-- those tables should only contain collums for the id of the items that user ordered for
 CREATE TABLE orders (
     id INT,
-    -- any table that starts with "o_" is a order table, after that is the user's id
-    -- those tables should only contain collums for the id of the items that user ordered for
-    table_p VARCHAR(8)
 );

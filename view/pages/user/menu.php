@@ -30,9 +30,12 @@
                 <h1><?php echo $type; ?></h1>
             </div>
             <div class="menu-options-menu-cards">
-                <?php while ($row = $items->fetch_assoc()) { ?>
+		<?php while ($row = $items->fetch_assoc()) { 
+		    $d_query = $sql_db->query('SELECT image_path FROM menu_description WHERE id = '. $row['id'] .';');
+		    $img_p = $d_query->fetch_assoc();
+    		    ?>					
                     <div class="menu-options-products">
-                            <img class="menu-options-products-img" src="https://encurtador.com.br/IKbQk">
+			    <img class="menu-options-products-img" src="<? echo $img_p['image_path'];?>">
                             <p><strong><?php echo $row['item_name']; ?></strong></p>
                             <p>Valor: R$<?php echo $row['item_price']; ?></p>
                             <button class="menu-options-view-button" type="submit"

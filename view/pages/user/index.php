@@ -1,5 +1,14 @@
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
-
+<?php include_once('./../../../model/scripts/get_item_types.php'); ?>
+<?php 
+	// set the type's image to the first item of its type
+	$it_images = [];
+	
+	foreach ($it_col as $col) {
+		$query = $sql_db->query('SELECT image_path FROM menu_description WHERE id =' . $col['id']. ';')->fetch_assoc();
+		$it_images[] = $query;
+	}
+?>
 <?php include_once "./../../components/head.php"; ?>
 <body>
 <?php include_once "./../../components/head.php"; ?>
@@ -15,8 +24,8 @@
             <h1 class="user-home-title-menu">Cardápio</h1>
             <div class="user-home-menu-cards">
 
-                <?php include_once('./../../../model/scripts/get_item_types.php'); for ($i = 0; $i < $t_count; $i++) { ?>
-                    <div class="user-home-menu user-home-card" 
+                <?php for ($i = 0; $i < $t_count; $i++) { ?>
+		    <div class="user-home-menu user-home-card" style="background-image: url('<? echo '../../../' . $it_images[$i]['image_path']; ?>');" 
                     onclick='redirect_with_param("menu.php", "item_type", <?php echo "`".$item_types[$i]."`"; ?>)'
                     ></div>
                 <? } ?>
