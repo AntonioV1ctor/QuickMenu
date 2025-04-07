@@ -8,9 +8,13 @@ Ou seja, o PHP precisa identificar qual produto foi selecionado e gerar a págin
 
 A ideia é usar um identificador único, como um ID, para determinar qual produto foi clicado e construir o conteúdo da página a partir disso. Remova esse comentario dps... -->
 <?php include_once "./../../components/head.php"; ?>
-
+<?php include_once "./../../components/cart_modal.php"; ?>
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
+    <button onclick="showCart()" class="cart-button">
+        <i class="fa-solid fa-shopping-cart"></i>
+        Ver Carrinho
+    </button>
     <div class="menu-options-container">
         <div class="user-home-restaurant-logo-area">
             <div class="user-home-restaurant-logo-div">
