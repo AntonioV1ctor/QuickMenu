@@ -7,25 +7,17 @@ include_once('./../../../model/database/db.php');
 //session_start();
 
 // get all items to diplay the name of those in the cart
-$items_q = $sql_db->query('SELECT * FROM menu;');
-$items_t = [];
 $items = [];
-
-// the data is in a difrent order than the id
-while ($collum = $items_q->fetch_assoc()) {
-	foreach ($_SESSION['cart'] as $val) {
-		if ($collum['id'] == $val) {
-			$items_t[] = $collum;
-		}
-	}
+foreach ($_SESSION['cart'] as $c_item) {
+	$c_data = $sql_db->query('SELECT * FROM menu WHERE id = ' . $c_item . ';')->fetch_assoc();
+	$items[] = $c_data; 
 }
-
-// no idea with what to do with $items for now :/
-$items = $items_t;
 
 if (isset($_POST['delete-c-item'])) {
 	// handle cart items
 	array_splice($_SESSION['cart'], $_POST['delete-c-item'], 1);
+	array_splice($items, $_POST['delete-c-item'], 1);
+
 	echo $_POST['delete-c-item'];	
 }
 	// handle cart actions

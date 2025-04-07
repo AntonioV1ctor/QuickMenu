@@ -51,7 +51,7 @@
     </div>
 
     <script src="/view/assets/js/main.js"></script>
-    <?php include_once "./../../components/footer.php"; ?>
+    <?//php include_once "./../../components/footer.php"; ?>
 </body>
 
 </html>

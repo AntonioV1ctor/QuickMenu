@@ -11,7 +11,7 @@
 ?>
 <?php include_once "./../../components/head.php"; ?>
 <body>
-<?php include_once "./../../components/head.php"; ?>
+<?php include_once "./../../components/user_navbar.php"; ?>
     <div class="user-home-container">
         <div class="user-home-restaurant-logo-area">
             <div class="user-home-restaurant-logo-div">
@@ -34,7 +34,7 @@
     </div>
 
     <script src="/view/assets/js/main.js"></script>
-    <?php include_once "./../../components/footer.php"; ?>
+    <?php //include_once "./../../components/footer.php"; ?>
 </body>
 </html>
 
