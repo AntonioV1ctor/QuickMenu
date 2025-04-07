@@ -15,7 +15,7 @@
 
 .menu-options-box {
     scrollbar-color: rgb(255, 207, 148) #EDE6E6;
-    box-shadow: 10px 10px 40px -5px;
+    box-shadow: 6px 7px 31px 0px rgba(0,0,0,0.42);
     background-color: #EDE6E6;
     flex-direction: column;
     scrollbar-width: thin;

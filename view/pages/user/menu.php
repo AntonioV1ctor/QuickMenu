@@ -11,10 +11,14 @@
     }
     if (!$type) { $type = 'Others'; }
 ?>
-
 <?php include_once "./../../components/head.php"; ?>
+<?php include_once "./../../components/cart_modal.php"; ?>
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
+    <button onclick="showCart()" class="cart-button">
+        <i class="fa-solid fa-shopping-cart"></i>
+        Ver Carrinho
+    </button>
     <div class="menu-options-container">
         <div class="user-home-restaurant-logo-area">
             <div class="user-home-restaurant-logo-div">
@@ -24,10 +28,8 @@
         </div>
         <div class="menu-options-box">
             <div class="menu-options-title">
-                <i id="menu-options-icon" class="fa-solid fa-arrow-left" 
-                onclick="window.location.href = './'"
-                ></i>
-                <h1><?php echo $type; ?></h1>
+                <i id="menu-options-icon" class="fa-solid fa-arrow-left"></i>
+                <h1>Hamburgers</h1>
             </div>
             <div class="menu-options-menu-cards">
 		<?php while ($row = $items->fetch_assoc()) { 
@@ -46,9 +48,8 @@
             </div>
         </div>
     </div>
-
     <script src="/view/assets/js/main.js"></script>
-    <?php //include_once "./../../components/footer.php"; ?>
+    <script src="/view/assets/js/menu.js"></script>
+    <?php include_once "./../../components/footer.php"; ?>
 </body>
-
 </html>

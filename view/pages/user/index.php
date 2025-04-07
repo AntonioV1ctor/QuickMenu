@@ -1,3 +1,26 @@
+<?/*
+<?php include_once "./../../components/head.php"; ?>
+<body>
+<?php include_once "./../../components/user_navbar.php"; ?>
+    <div class="user-home-container">
+        <div class="user-home-restaurant-logo-area">
+            <div class="user-home-restaurant-logo-div">
+                <img class="user-home-restaurant-img" src="https://encurtador.com.br/1uewd" alt="logo">
+            </div>
+            <h1 class="user-home-restaurant-name">Burger Palace</h1>
+        </div>
+
+        <div class="user-home-box">
+            
+        </div>
+    </div>
+
+    <?php //include_once "./../../components/footer.php"; ?>
+</body>
+</html>
+
+
+=======*/?>
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php include_once('./../../../model/scripts/get_item_types.php'); ?>
 <?php 
@@ -9,9 +32,16 @@
 		$it_images[] = $query;
 	}
 ?>
+
 <?php include_once "./../../components/head.php"; ?>
+<?php include_once "./../../components/cart_modal.php"; ?>
+
 <body>
-<?php include_once "./../../components/user_navbar.php"; ?>
+    <?php include_once('./../../components/user_navbar.php'); ?>
+    <button onclick="showCart()" class="cart-button">
+        <i class="fa-solid fa-shopping-cart"></i>
+        Ver Carrinho
+    </button>
     <div class="user-home-container">
         <div class="user-home-restaurant-logo-area">
             <div class="user-home-restaurant-logo-div">
@@ -32,10 +62,8 @@
             </div>
         </div>
     </div>
-
     <script src="/view/assets/js/main.js"></script>
-    <?php //include_once "./../../components/footer.php"; ?>
+    <?php include_once "./../../components/footer.php"; ?>
+
 </body>
 </html>
-
-
