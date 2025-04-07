@@ -1,25 +1,19 @@
 <header class="user-navbar-header">
-    <nav class="user-navbar-nav">
-        <i id="user-navbar-more-options-icon" class="fa-solid fa-bars"></i>
-    </nav>
-    <div id="chief-login-container" class="chief-login-container">
-        <div class="chief-login-box">
-            <form class="login-home-form" action="/view/pages/user/index.php" method="post">
-                <div class="login-home-user-profile"></div>
-                <input name="login-home-submit" class="login-home-button-default" required type="submit" value="User Screen">
-            </form>
-        </div>
-    </div>
+  <nav class="user-navbar-nav">
+      
+        <i onclick="logout()" title="Logout" id="user-navbar-more-options-icon" class="fa-solid fa-power-off"></i>
+      
+  </nav>
 </header>
 
-
-
 <script>
-    const navbarIcon = document.getElementById('user-navbar-more-options-icon');
-    const navbarLoginDiv = document.getElementById('chief-login-container');
-
-    navbarIcon.addEventListener('click', function() {
-        navbarLoginDiv.classList.toggle('visible');
-        console.log("Menu alternado");
-    });
+  function logout() {
+    const confirmaLogout = confirm("Você tem certeza que deseja sair?");
+    if (confirmaLogout) {
+      alert("Você foi deslogado!");
+      window.location.href = "/view/pages/user/index.php";
+    } else {
+      console.log("Abortado...");
+    }
+  }
 </script>

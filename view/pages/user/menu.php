@@ -1,12 +1,3 @@
-<!-- Danilo, aqui você vai precisar criar uma função em PHP que gere dinamicamente o conteúdo da página com base no produto selecionado na tela anterior. 
-Exemplo: quando o usuário clica em "Hamburgers" na página anterior, ele é redirecionado para essa página, que deve exibir:
-    1. O título da categoria (ex: "Hamburgers").
-    2. Um conjunto de cards com os hambúrgueres disponíveis e seus preços.
-
-Essa página deve ser única para cada tipo de produto (não deve haver uma tela fixa para "Hamburgers", "Bebidas", "Salgados", etc.). 
-Ou seja, o PHP precisa identificar qual produto foi selecionado e gerar a página dinamicamente com base nesse produto.
-
-A ideia é usar um identificador único, como um ID, para determinar qual produto foi clicado e construir o conteúdo da página a partir disso. Remova esse comentario dps... -->
 <?php include_once "./../../components/head.php"; ?>
 <?php include_once "./../../components/cart_modal.php"; ?>
 <body>
@@ -44,5 +35,4 @@ A ideia é usar um identificador único, como um ID, para determinar qual produt
     <script src="/view/assets/js/menu.js"></script>
     <?php include_once "./../../components/footer.php"; ?>
 </body>
-
 </html>
