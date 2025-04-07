@@ -1,7 +1,12 @@
 <?php include_once "./../../components/head.php"; ?>
+<?php include_once "./../../components/cart_modal.php"; ?>
 
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
+    <button onclick="showCart()" class="cart-button">
+        <i class="fa-solid fa-shopping-cart"></i>
+        Ver Carrinho
+    </button>
     <div class="user-home-container">
         <div class="user-home-restaurant-logo-area">
             <div class="user-home-restaurant-logo-div">
