@@ -1,12 +1,49 @@
+<?php
+include_once('./../../../model/database/db.php');
+//session_start();
+$cart_count = count($_SESSION['cart']);
+
+// get data from each item in cart
+$items_m = [];
+$items_d = [];
+$total_price = 0;
+foreach ($_SESSION['cart'] as $c_item) {
+	$c_data = $sql_db->query('SELECT * FROM menu WHERE id = ' . $c_item . ';')->fetch_assoc();
+	$c_d_data = $sql_db->query('SELECT * FROM menu_description WHERE id = ' . $c_item . ';')->fetch_assoc();
+	
+	$items_m[] = $c_data;
+	$items_d[] = $c_d_data;
+	$total_price += $c_data['item_price'];
+}
+
+
+
+?>
 <div id="cart-modal" class="cart-modal">
     <div class="cart-modal-content">
         <div class="cart-modal-header">
             <h2>Seu Pedido</h2>
             <span class="cart-close">&times;</span>
         </div>
-        <div class="cart-modal-body">
-            <div class="cart-items">
-                <!-- Itens do carrinho (estáticos para exemplo) -->
+	<div class="cart-modal-body">
+	    <div class="cart-items">
+
+		<?php for ($i = 0; $i < $cart_count; $i++) { ?>
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <h3>Batata Frita Grande</h3>
+                        <p>Porção 300g com molho especial</p>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="quantity-btn" onclick="updateQuantity(2, 'decrease')">-</button>
+                        <span class="item-quantity">1</span>
+                        <button class="quantity-btn" onclick="updateQuantity(2, 'increase')">+</button>
+                        <span class="item-price">R$ 15,90</span>
+                    </div>
+		</div>
+		<? } ?>
+
+		<!-- Itens do carrinho (estáticos para exemplo) -->
                 <div class="cart-item">
                     <div class="cart-item-info">
                         <h3>Hambúrguer Clássico</h3>
@@ -37,7 +74,7 @@
             <div class="cart-summary">
                 <div class="cart-total">
                     <h3>Total do Pedido:</h3>
-                    <span class="total-price">R$ 75,70</span>
+		    <span class="total-price">R$ <? echo $total_price; ?></span>
                 </div>
                 <div class="cart-observations">
                     <textarea placeholder="Observações do pedido..."></textarea>

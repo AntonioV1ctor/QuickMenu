@@ -16,6 +16,7 @@ CREATE TABLE menu_description (
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES menu(id) ON DELETE CASCADE,
     content TEXT,
+    ingredients TEXT,
     image_path VARCHAR(255)
 );
 
@@ -23,4 +24,5 @@ CREATE TABLE menu_description (
 -- those tables should only contain collums for the id of the items that user ordered for
 CREATE TABLE orders (
     id INT,
+    user_note VARCHAR(200)
 );

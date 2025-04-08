@@ -1,5 +1,3 @@
-<? // might fix the errors only when i get the frontend
-?>
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php
 include_once('./../../../model/database/db.php');
