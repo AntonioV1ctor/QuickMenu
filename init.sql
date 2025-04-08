@@ -24,5 +24,6 @@ CREATE TABLE menu_description (
 -- those tables should only contain collums for the id of the items that user ordered for
 CREATE TABLE orders (
     id INT,
+    tablep VARCHAR(2 + 8)
     user_note VARCHAR(200)
 );

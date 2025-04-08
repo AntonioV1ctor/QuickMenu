@@ -1,5 +1,6 @@
 <?php include_once('./../../../model/scripts/check-session.php'); ?>
 <?php include_once('./../../../model/scripts/get_item_types.php'); ?>
+<?php include_once('./../../../config/config.php'); ?>
 <?php 
 	// set the type's image to the first item of its type
 	$it_images = [];
@@ -24,7 +25,7 @@
             <div class="user-home-restaurant-logo-div">
                 <img class="user-home-restaurant-img" src="https://encurtador.com.br/1uewd" alt="logo">
             </div>
-            <h1 class="user-home-restaurant-name">Burger Palace</h1>
+	    <h1 class="user-home-restaurant-name"><? echo $restaurant_name; ?></h1>
         </div>
 
         <div class="user-home-box">
