@@ -11,12 +11,43 @@
 	}
 ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_note'])) {
+    // Insert the order data into the orders table
+    $sql_db->query("INSERT INTO orders (user_id, user_note) VALUES (" . $_SESSION['user_id'] . ", '" . $_POST['order_note'] . "');");
+
+    // Decode the order data as an associative array
+    $order_data = json_decode($_POST['order_data'], true); // Ensure it's decoded as an associative array
+
+    // Get the last order id for this user (the most recent order)
+    $ooo = $sql_db->query('SELECT * FROM orders WHERE user_id = ' . $_SESSION['user_id'] . ' ORDER BY id DESC LIMIT 1;')->fetch_assoc();
+
+    // Insert items into the order_items table
+    foreach ($order_data as $item) {
+        // Ensure that the array contains the actual item ID and quantity
+        foreach ($item as $i_id => $i_q) {
+            // Ensure proper escaping of values to prevent SQL injection
+            $order_id = $ooo['id'];
+            $item_id = (int)$i_id;  // Cast item_id to integer
+            $quantity = (int)$i_q;  // Cast quantity to integer
+
+            // Insert the item into the order_items table
+            $sql_db->query("INSERT INTO order_items (order_id, item_id, quantity) VALUES ($order_id, $item_id, $quantity);");
+        }
+    }
+
+    // Optionally, display the order data for debugging
+    var_dump($order_data);
+    $_SESSION['cart'] = [];
+}
+?>
+
 <?php include_once "./../../components/head.php"; ?>
 <?php include_once "./../../components/cart_modal.php"; ?>
 
 <body>
     <?php include_once('./../../components/user_navbar.php'); ?>
-    <button onclick="showCart()" class="cart-button">
+    <button onclick="showCart()" class="ver-carrinho-btn">
         <i class="fa-solid fa-shopping-cart"></i>
         Ver Carrinho
     </button>

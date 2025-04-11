@@ -1,8 +1,10 @@
-<?php include_once "./../../components/head.php"; ?>
+<?php include_once "./../../../model/database/db.php"; ?>
 <?php
-$chiefname = $_POST["chief-name"] ?? "";
+session_start();
+//$chiefname = $_POST["chief-name"] ?? "";
+$chiefname = $sql_db->query("SELECT username FROM clients WHERE id =". $_SESSION['user_id'] .";")->fetch_assoc();
 ?>
-
+<?php include_once "./../../components/head.php"; ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const setupCardClick = (cardDiv, formId) => {
@@ -25,7 +27,7 @@ $chiefname = $_POST["chief-name"] ?? "";
     <div class="chief-options-container">
         <div class="chief-options-box">
             <div class="chief-head-title">
-                <h1 class="chief-tltle-text">Olá, Sr(a). <?php echo "$chiefname"; ?> </h1>
+                <h1 class="chief-tltle-text">Olá, Sr(a). <?php echo $chiefname['username']; ?> </h1>
             </div>
             <table>
                 <tbody>
@@ -34,7 +36,7 @@ $chiefname = $_POST["chief-name"] ?? "";
                             <img class="chief-default-icon-style" src="/view/assets/images/Icons/list-icon.png" alt="list">
                             <h1>Pedidos-Ativos</h1>
                             <form id="form-pedidos" action="ativos.php" method="post">
-                                <input type="hidden" name="chief-name" value="<?php echo htmlspecialchars($chiefname); ?>">
+                                <input type="hidden" name="chief-name" value="<?php echo $chiefname['username']; ?>">
                                 <input type="hidden" name="restaurant-id" value="<?php echo htmlspecialchars($restaurant_id); ?>">
                                 <input type="submit" class="invisible-submit">
                             </form>

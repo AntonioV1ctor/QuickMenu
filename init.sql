@@ -10,7 +10,7 @@ CREATE TABLE menu (
     item_type VARCHAR(16),
     item_price FLOAT UNSIGNED,
     id INT AUTO_INCREMENT PRIMARY KEY
-);
+)CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE TABLE menu_description (
     id INT,
     PRIMARY KEY (id),
@@ -18,12 +18,17 @@ CREATE TABLE menu_description (
     content TEXT,
     ingredients TEXT,
     image_path VARCHAR(255)
-);
+)CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- any table that starts with "o_" is a order table, after that is the user's id
--- those tables should only contain collums for the id of the items that user ordered for
 CREATE TABLE orders (
-    id INT,
-    tablep VARCHAR(2 + 8)
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    user_id INT,
     user_note VARCHAR(200)
+);
+CREATE TABLE order_items (
+    order_id INT,
+    item_id INT,
+    quantity INT,
+    PRIMARY KEY (order_id, item_id),
+    FOREIGN KEY (order_id) REFERENCES orders(id)  -- Linking back to the orders table
 );

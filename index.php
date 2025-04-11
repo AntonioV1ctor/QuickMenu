@@ -8,9 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$up = $sql_db->query('SELECT * FROM clients WHERE user_email = "'. $_POST['login-home-flogin'] .'";');
 	$user = $up->fetch_assoc();
 
-	if ($user['pass'] == $_POST['login-home-fpass']) {
+	if (isset($user['pass']) && $user['pass'] == $_POST['login-home-fpass']) {
 		$_SESSION['user_id'] = $user['id'];	
 		header('location: /view/pages/user');
+	} else {
+		echo "user not found";
 	}
 }
 ?>

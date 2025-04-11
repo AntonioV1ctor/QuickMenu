@@ -1,22 +1,26 @@
 <?php
-include_once('./../../../model/database/db.php');
+//include_once(__DIR__ . '/../../../model/database/db.php');
 //session_start();
+if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = [];
+}
 $cart_count = count($_SESSION['cart']);
 
-// get data from each item in cart
+// get total price 
 $items_m = [];
-$items_d = [];
+//$items_d = [];
 $total_price = 0;
 foreach ($_SESSION['cart'] as $c_item) {
 	$c_data = $sql_db->query('SELECT * FROM menu WHERE id = ' . $c_item . ';')->fetch_assoc();
-	$c_d_data = $sql_db->query('SELECT * FROM menu_description WHERE id = ' . $c_item . ';')->fetch_assoc();
+	//$c_d_data = $sql_db->query('SELECT * FROM menu_description WHERE id = ' . $c_item . ';')->fetch_assoc();
 	
 	$items_m[] = $c_data;
-	$items_d[] = $c_d_data;
+	//$items_d[] = $c_d_data;
 	$total_price += $c_data['item_price'];
 }
 
-
+// new array to display 
+$cart_display = array_count_values($_SESSION['cart']);
 
 ?>
 <div id="cart-modal" class="cart-modal">
@@ -28,47 +32,24 @@ foreach ($_SESSION['cart'] as $c_item) {
 	<div class="cart-modal-body">
 	    <div class="cart-items">
 
-		<?php for ($i = 0; $i < $cart_count; $i++) { ?>
+		<?php foreach ($cart_display as $i_id => $i_val) { 
+		$ci_data = $sql_db->query('SELECT * FROM menu WHERE id = ' . $i_id . ';')->fetch_assoc();
+		$ci_data_desc = $sql_db->query('SELECT * FROM menu_description WHERE id = '. $i_id .';')->fetch_assoc();	
+		?>
                 <div class="cart-item">
-                    <div class="cart-item-info">
-                        <h3>Batata Frita Grande</h3>
-                        <p>Porção 300g com molho especial</p>
+		<div class="cart-item-info">
+		    	<h3><? echo $ci_data['item_name']; ?></h3>
                     </div>
                     <div class="cart-item-actions">
-                        <button class="quantity-btn" onclick="updateQuantity(2, 'decrease')">-</button>
-                        <span class="item-quantity">1</span>
-                        <button class="quantity-btn" onclick="updateQuantity(2, 'increase')">+</button>
-                        <span class="item-price">R$ 15,90</span>
+                        
+			<button class="quantity-btn" onclick="updateQuantity(this, 'decrease')">-</button>
+			<span class="item-quantity" name="<? echo $i_id; ?>"><? echo $i_val; ?></span>
+			<button class="quantity-btn" onclick="updateQuantity(this, 'increase')">+</button>
+			<span class="item-price"><? echo $ci_data['item_price']; ?></span>
+
                     </div>
 		</div>
 		<? } ?>
-
-		<!-- Itens do carrinho (estáticos para exemplo) -->
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <h3>Hambúrguer Clássico</h3>
-                        <p>Pão, hambúrguer, alface, tomate</p>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button class="quantity-btn" onclick="updateQuantity(1, 'decrease')">-</button>
-                        <span class="item-quantity">2</span>
-                        <button class="quantity-btn" onclick="updateQuantity(1, 'increase')">+</button>
-                        <span class="item-price">R$ 29,90</span>
-                    </div>
-                </div>
-
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <h3>Batata Frita Grande</h3>
-                        <p>Porção 300g com molho especial</p>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button class="quantity-btn" onclick="updateQuantity(2, 'decrease')">-</button>
-                        <span class="item-quantity">1</span>
-                        <button class="quantity-btn" onclick="updateQuantity(2, 'increase')">+</button>
-                        <span class="item-price">R$ 15,90</span>
-                    </div>
-                </div>
             </div>
 
             <div class="cart-summary">
@@ -77,12 +58,12 @@ foreach ($_SESSION['cart'] as $c_item) {
 		    <span class="total-price">R$ <? echo $total_price; ?></span>
                 </div>
                 <div class="cart-observations">
-                    <textarea placeholder="Observações do pedido..."></textarea>
+                    <textarea id='order_note' placeholder="Observações do pedido..."></textarea>
                 </div>
             </div>
         </div>
         <div class="cart-modal-footer">
-            <button class="cart-button" onclick="finalizarPedido()">Finalizar Pedido</button>
+        <? if ($cart_display) { echo '<button class="cart-button" onclick="finalizarPedido()">Finalizar Pedido</button>'; } ?>
         </div>
     </div>
 </div>
@@ -224,6 +205,7 @@ foreach ($_SESSION['cart'] as $c_item) {
         text-align: right;
     }
 
+    
     .cart-button {
         background-color: #ADB2D4;
         color: white;
@@ -232,15 +214,43 @@ foreach ($_SESSION['cart'] as $c_item) {
         border-radius: 4px;
         cursor: pointer;
         transition: 0.3s;
+        font-size: 16px;
     }
 
     .cart-button:hover {
         background-color: #3E3F5B;
         transform: scale(1.05);
     }
+
+    .ver-carrinho-btn {
+    	position: fixed; 
+    	bottom: 20px;     
+    	right: 20px;      
+    	padding: 12px 20px;
+    	background-color: #ADB2D4;
+    	color: white;
+    	border: none;
+    	border-radius: 6px;
+    	cursor: pointer;
+    	z-index: 9999;
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .ver-carrinho-btn:hover {
+        background-color: #3E3F5B;
+    }
+
+
+
 </style>
 
 <script>
+    // don't mind the language switch in update_total
+    // its because i(danilo) like to write the stuff in my code in english
+
+    // save data in object everytime updateTotal() is called
+    all_order_data = [];
+    
     // Função para mostrar o carrinho
     function showCart() {
         document.getElementById('cart-modal').classList.add('show');
@@ -252,34 +262,88 @@ foreach ($_SESSION['cart'] as $c_item) {
     }
 
     // Função para atualizar quantidade
-    function updateQuantity(itemId, action) {
-        const quantityElement = document.querySelector(`[onclick*="updateQuantity(${itemId}"]`)
-            .parentElement.querySelector('.item-quantity');
+    
+    function updateQuantity(button, action) {
+        const container = button.parentElement; 
+        const quantityElement = container.querySelector('.item-quantity');
         let quantity = parseInt(quantityElement.textContent);
 
         if (action === 'increase') {
             quantity++;
-        } else if (action === 'decrease' && quantity > 1) {
+        } else if (action === 'decrease' && quantity > 0) {
             quantity--;
         }
 
         quantityElement.textContent = quantity;
-        updateTotal();
+
+        updateTotal(); 
     }
+
 
     // Função para atualizar o total
+    
     function updateTotal() {
-        // Implementar cálculo do total baseado nos itens e quantidades
-        // Esta é uma versão simplificada
-        const total = 75.70; // Valor fixo para exemplo
-        document.querySelector('.total-price').textContent = `R$ ${total.toFixed(2)}`;
+        const price_nodes = document.querySelectorAll('.item-price');
+        const p_multi = document.querySelectorAll('.item-quantity');
+
+	all_order_data.splice(0, all_order_data.length)
+	all_order_data = []
+
+	let total_price = 0;
+
+        for (let i = 0; i < p_multi.length; i++) {
+            let price = parseFloat(price_nodes[i].textContent);
+            let multi = parseInt(p_multi[i].textContent);
+
+            if (isNaN(price) || isNaN(multi)) {
+            console.warn(`Invalid data at index ${i}: price='${price_nodes[i].textContent}', quantity='${p_multi[i].textContent}'`);
+                continue;
+	    }
+	    
+	    
+    	    all_order_data.push({[p_multi[i].getAttribute('name')]: multi})
+            total_price += price * multi;
+        }
+
+        document.querySelector('.total-price').textContent = `R$ ${total_price.toFixed(2)}`;
+        console.log(all_order_data)
     }
+    updateTotal()
 
     // Função para finalizar pedido
-    function finalizarPedido() {
+    
+function finalizarPedido() {
+    // Enviar pedido para backend
+    const formData = new FormData();
+    const note_n = document.getElementById("order_note");
+
+    console.log("Order Note:", note_n.value);
+    
+    formData.append('order_data', JSON.stringify(all_order_data));
+    formData.append('order_note', note_n.value);
+
+    const url = window.location.pathname;
+    console.log("Sending POST request to:", url);  // Log the URL where the POST is being sent
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        console.log('Response status:', res.status);  // Log the response status
+        return res.text();
+    })
+    .then(data => {
+        console.log('Server response:', data);
         alert('Pedido finalizado com sucesso!');
-        hideCart();
-    }
+	hideCart();
+	location.reload()
+    })
+    .catch(error => {
+        console.error('Erro ao enviar pedido:', error);
+    });
+}
+
 
     // Event listeners
     document.querySelector('.cart-close').addEventListener('click', hideCart);
